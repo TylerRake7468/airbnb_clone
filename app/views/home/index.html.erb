@@ -16,7 +16,7 @@
   <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
     <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
       
-      <% 10.times do %>
+      <% @properties.each do |property| %>
         <div class="group relative">
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
             <img src="https://media.licdn.com/dms/image/C5612AQG9kZC4g0bh6Q/article-cover_image-shrink_720_1280/0/1644179279180?e=2147483647&v=beta&t=E5hXjZJPl0xV_y_r6KVS947K8MSn7sU6CxcTX3C8U-w" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -26,7 +26,7 @@
                     <h3 class="text-base font-semibold text-gray-700">
                         <a href="#">
                             <span aria-hidden="true" class="absolute inset-0"></span>
-                            Marwar Junction, India
+                            <%= property&.city %>, <%= property&.country %>
                         </a>
                     </h3>
                     <p class="flex item-center text-sm font-light">
