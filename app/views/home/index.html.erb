@@ -4,8 +4,16 @@
       
       <% @properties.each do |property| %>
         <div class="group relative">
-            <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <%= image_tag property.images.last, class: "h-full w-full object-cover object-center lg:h-full lg:w-full"%>
+            <div class="swiper aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <% property.images.each do |p_image| %>
+                  <%= image_tag p_image, class: "swiper-slide h-full w-full object-cover object-center lg:h-full lg:w-full"%>
+                <% end %>
+              </div>
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </div>
             <div class="mt-2">
                 <div class="flex justify-between">
