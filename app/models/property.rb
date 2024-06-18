@@ -18,4 +18,9 @@ class Property < ApplicationRecord
         avg_rating = reviews.average(:final_rating).to_f
         update_column(:average_final_rating, avg_rating)
     end
+
+    def wishlisted_by(user=nil)
+        return unless user.present?
+        wishlisted_users.include?(user)
+    end
 end
