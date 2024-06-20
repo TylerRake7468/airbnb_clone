@@ -1,10 +1,11 @@
-module api
+module Api
     class WishlistsController < ApplicationController
+        protect_from_forgery with: :null_session
         def create
             wishlist = Wishlist.create!(wishlist_params)
             respond_to do |format|
                 format.json do
-                    render :wishlist, status: :ok
+                    render json: wishlist.to_json, status: :ok
                 end
             end
         end
@@ -14,7 +15,7 @@ module api
             wishlist.destroy if wishlist.present?
             respond_to do |format|
                 format.json do
-                    render "", status: 204
+                    render json: {"":""}, status: :ok
                 end
             end
         end
