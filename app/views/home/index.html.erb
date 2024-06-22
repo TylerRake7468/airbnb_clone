@@ -57,7 +57,7 @@
                     </p>
                 </div>
                 <p class="mt-0.5 text-sm text-gray-500">Hosted by Lalit</p>
-                <p class="mt-0.5 text-sm text-gray-500">20-25 Jun</p>
+                <p class="mt-0.5 text-sm text-gray-500"><%= property.available_dates.first %> - <%= property.available_dates.last %></p>
                 <p class="text-sm font-medium text-gray-500">
                   <span class="text-gray-900"><%= humanized_money_with_symbol(property.price)%></span> night
                 </p>
