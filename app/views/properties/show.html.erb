@@ -275,6 +275,10 @@
           </div>
         </div>
       </div>
+
+      <!-- Amenities -->
+      <%= render :partial => 'properties/amenities', :locals => {:amenities => @property.amenities } %>
+      
     </div>
 
     <!-- Reviews -->

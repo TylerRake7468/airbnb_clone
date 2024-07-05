@@ -1,34 +1,63 @@
 description = <<-DESCRIPTION
-<div style="text-align: start;color: rgb(34, 34, 34);background-color: rgb(255, 255, 255);font-size: 1rem !important;">
-    <div>Dale View - A beautiful 2 bedroom A/C bungalow set amongst nature with a 180 degree panoramic view of hills and the Kundalika River in the foreground. A beautiful get away for you and your family. Food can be ordered at home from the nearby Resort or get home cooked food prepared by a Cook who supplies food in our Complex. The Bungalow is on a hill with breathtaking view. Enjoy the serenity of the place during your visit and destress!</div>
+<div>Explore the nature and art oasis at our unique property. The living room, a cozy masterpiece, and the fully equipped kitchen are ideal for cooking and entertaining. Step outside to our garden patio, unwind, and enjoy morning birdsong. Tastefully decorated bedrooms, a powder room, and utility area complete the experience.<br />Note: The property is surrounded by a residential area. Despite initial surroundings, I am sure that, stepping in will fill your mood with joy and happiness.
 </div>
-<div style="text-align: start;color: rgb(34, 34, 34);background-color: rgb(255, 255, 255);font-size: 1rem !important;">
-    <div>
-        <div>
-            <h3 tabindex="-1" style="color: inherit;font-size: 1em;">The space</h3>
-        </div>The guests can make use of 2 air conditioned bedrooms, 1 air conditioned hall, 2 bathrooms (additional 3rd one behind the bungalow) and of course the kitchen. For sightseeing there is the famous Birla Ganesh Temple at Salav, Kashid beach, Revdanda town, Murud Janjira Beach all within a driving distance of 15-45 minutes. Nature lovers can go hiking in the hills of Phansad Wild Life Santuary. Very scenic, very peaceful surroundings and utter bliss to be woken up amongst the sounds of birds!! The Bungalow is situated on the Revdanda - Roha Road (8 kms from Revdanda)
-    </div>
-</div>
-<div style="text-align: start;color: rgb(34, 34, 34);background-color: rgb(255, 255, 255);font-size: 1rem !important;">
-    <div>
-        <div>
-            <h3 tabindex="-1" style="color: inherit;font-size: 1em;">Guest access</h3>
-        </div>The whole bungalow is there for your use. Common car park. Swimming pool at a nearby Resort may be open to you for a nominal fee.
-    </div>
-</div>
-<div style="text-align: start;color: rgb(34, 34, 34);background-color: rgb(255, 255, 255);font-size: 1rem !important;">
-    <div>
-        <div>
-            <h3 tabindex="-1" style="color: inherit;font-size: 1em;">Other things to note</h3>
-        </div>The bungalow is situated on a Hill and there are twenty steps to reach the Bungalow. Hence, not suitable for invalids or with persons with acute health issues.
-    </div>
-</div>
+<h4 class="font-medium" tabindex="-1">The space</h4>
+<p>Escape to a hidden gem in the heart of nature with our beautiful and artistic property. Our spacious and welcoming home is the perfect retreat for those looking to escape the hustle and bustle of the city and reconnect with nature.<br />As you enter through our beautifully adorned main gate with mandala art, you'll immediately feel a sense of peace and positive energy. The gate is an entryway to an amazing experience that is designed to help you unwind and relax.<br />Our living room is a work of art, with fascinating elements that create a cozy and unforgettable ambiance. The room features artistic designs, which are evident in the use of color, the decorations on the wall, and the unique furniture arrangement. The artistic flair adds a unique touch of elegance to the living room, making it the perfect place to spend time with family and friends. Our fully equipped kitchen is a modern open design with bamboo roofing, perfect for cooking and entertaining guests.<br />Step outside and experience the beauty of our garden patio, complete with a lush green view and the calming sounds of chirping birds in the morning. The patio is an extension of the living room, where you can enjoy your meals and relax in the fresh air. Fire up the barbecue in our cozy gazebo for a fun and relaxing evening with friends and family. The garden patio is the perfect place to unwind, read a book or just take a nap under the shade of a tree.<br />The bedrooms are spacious, comfortable, and tastefully decorated, with plenty of natural light, beautiful art pieces and a calming color scheme. The beds are comfortable, and the linens are soft and luxurious, providing you with the best possible sleeping experience.<br />Even our powder room and utility area have been designed with sustainability in mind. The utility area is a cleverly designed space that is efficient and has all the modern amenities required for your stay.<br />Note: The property is surrounded by a residential area. Despite initial surroundings, I am sure that, stepping in will fill your mood with joy and happiness.</p>
+<h4 class="font-medium" tabindex="-1">Guest Policy</h4>
+<p>Entire Property is yours!! Wish you fun and happy stay!!</p>
 DESCRIPTION
 
 pictures = []
 20.times do |i|
   pictures << URI.parse(Faker::LoremFlickr.image).open
 end
+
+amenities_data = [
+  {name: 'Air conditioning', icon: "air_conditioning.svg"},
+  {name: 'Balcony', icon: "balcony.svg"},
+  {name: 'Bed linen', icon: "bed_linen.svg"},
+  {name: 'Board games', icon: "board_games.svg"},
+  {name: 'Carbon monoxide alarm', icon: "carbon_monoxide_alarm.svg"},
+  {name: 'Coffee maker', icon: "coffee_maker.svg"},
+  {name: 'Cooker', icon: "cooker.svg"},
+  {name: 'Cooking basics', icon: "cooking_basics.svg", description: 'Pots and pans, oil, salt and pepper'},
+  {name: 'Cot', icon: "cot.svg"},
+  {name: 'Dedicated workspace', icon: "dedicated_workspace.svg"},
+  {name: 'Dining table', icon: "dining_table.svg"},
+  {name: 'Dishes and cutlery', icon: "dishes_and_cutlery.svg", description: 'Bowls, chopsticks, plates, cups, etc.'},
+  {name: 'Dishwasher', icon: "dishwasher.svg"},
+  {name: 'Dryer', icon: "dryer.svg"},
+  {name: 'Esssentials', icon: "essentials.svg", description: 'Towels, bed sheets, soap and toilet paper'},
+  {name: 'Fire extinguisher', icon: "fire_extinguisher.svg"},
+  {name: 'First aid kit', icon: "first_aid_kit.svg"},
+  {name: 'Free parking', icon: "free_parking.svg"},
+  {name: 'fridge', icon: "fridge.svg"},
+  {name: 'Garden', icon: "garden.svg", description: 'An open space on the property usually covered in grass'},
+  {name: 'Hair dryer', icon: "hair_dryer.svg"},
+  {name: 'Hangers', icon: "hangers.svg"},
+  {name: 'Heating', icon: "heating.svg"},
+  {name: 'Hot tub', icon: "hot_tub.svg"},
+  {name: 'Hot water', icon: "hot_water.svg"},
+  {name: 'Iron', icon: "iron.svg"},
+  {name: 'Kitchen', icon: "kitchen.svg", description: 'Space where guests can cook their own meals'},
+  {name: 'Lockbox', icon: "lockbox.svg"},
+  {name: 'Microwave', icon: "microwave.svg"},
+  {name: 'Mountain view', icon: "mountain_view.svg"},
+  {name: 'Oven', icon: "oven.svg"},
+  {name: 'Pool table', icon: "pool_table.svg"},
+  {name: 'Private entrance', icon: "private_entrance.svg", description: 'Separate street or building entrance'},
+  {name: 'Private pool', icon: "private_pool.svg" },
+  {name: 'Shampoo', icon: "shampoo.svg"},
+  {name: 'Smoke alarm', icon: "smoke_alarm.svg"},
+  {name: 'TV', icon: "tv.svg"},
+  {name: 'Washing machine', icon: "washing_machine.svg"},
+  {name: 'Wifi', icon: "wifi.svg"},
+]
+
+amenities_data.each do |data|
+  amenity = Amenity.create!(name: data[:name], icon: data[:icon], description: data[:description])
+end
+
 
 user = User.create!({
   email: 'test1@gmail.com',
@@ -81,6 +110,14 @@ end
   property.images.attach(io: File.open("db/images/property_11.png"), filename: property.name)
   property.images.attach(io: File.open("db/images/property_12.png"), filename: property.name)
 
+  ((10..(amenities_data.length() - 1)).to_a.sample).times do
+    p_ame_set = property.amenities.all
+    new_sample = Amenity.all.sample
+    unless p_ame_set.include?(new_sample)
+      property.amenities << new_sample
+    end
+  end
+  
   ((5..10).to_a.sample).times do
     Review.create!({
       content: Faker::Lorem.paragraph(sentence_count: 10),
@@ -95,3 +132,16 @@ end
     })
   end
 end
+
+# amenity1 = Amenity.create!(name: "Kitchen")
+# amenity1.icon.attach(io: File.open("app/assets/images/amenity_icons/kitchen.svg"), filename: amenity1.name)
+
+# amenity2 = Amenity.create!(name: "PrivatePool")
+# amenity2.icon.attach(io: File.open("app/assets/images/amenity_icons/private_pool.svg"), filename: amenity2.name)
+
+# amenity3 = Amenity.create!(name: "Wifi")
+# amenity3.icon.attach(io: File.open("app/assets/images/amenity_icons/wifi.svg"), filename: amenity3.name)
+
+# amenity4 = Amenity.create!(name: "Essentials", description: "Towel, soap, bedsheet, and toilet paper")
+# amenity4.icon.attach(io: File.open("app/assets/images/amenity_icons/essentials.svg"), filename: amenity4.name)
+

@@ -1,0 +1,15 @@
+<div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pr-8">
+<!-- Description and details -->
+    <div class="border-t border-gray-200 pt-10 mt-4">
+        <h2 class="text-xl font-medium leading-6 text-gray-900">What this place offers</h2>
+
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2">
+            <% amenities.each do |amenity| %>
+                <div class="py-2 flex">
+                    <%= image_tag "amenity_icons/#{amenity.icon}", class:"w-6 h-6" %>
+                    <p class="ms-4 font-light"><%= amenity.name %></p>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
