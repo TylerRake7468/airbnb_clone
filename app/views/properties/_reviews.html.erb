@@ -188,9 +188,9 @@
           data-controller="reviews"
           data-action="click->reviews#toggleReviewsModal"
         >
-        Show all reviews</button>
+        Show all <%= property.reviews_count %> reviews</button>
       <% end %>
     </div>
   </section>
 </div>
-<%= render 'shared/modal', modalTriggerId: "reviews",content: "properties/reviews_modal" %>
+<%= render 'shared/modal', modalTriggerId: "reviews",content: "properties/reviews_modal", content_params: {property: property} %>
