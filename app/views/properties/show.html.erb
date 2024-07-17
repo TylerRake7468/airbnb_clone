@@ -96,7 +96,7 @@
       </div>
 
       <!-- Booking Option -->
-      <%= render :partial => "properties/bookings", :locals => {:property => @property} %>
+      <%= render :partial => "properties/bookings", :locals => {:property => @property, :blocked_dates => @blocked_dates} %>
 
       <div class="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">
         <!-- Description and details -->
