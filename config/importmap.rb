@@ -9,3 +9,4 @@ pin "el-transition" # @0.0.7
 pin "swiper" # @11.1.4
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "flatpickr" # @4.6.13
