@@ -72,4 +72,18 @@ export default class extends Controller {
         const checkoutDate = new Date(this.checkoutTarget.value);
         return (checkoutDate - checkinDate)/(1000*60*60*24);
     }
+
+    reserveProperty(e){
+        e.preventDefault();
+        const baseUrl = e.target.dataset.reservePropertyUrl;
+
+        const paramsData = {
+            checkinDate: "2024-07-20",
+            checkoutDate: "2024-07-25"
+        }
+        const paramsUrl = (new URLSearchParams(paramsData)).toString();
+
+
+        Turbo.visit(`${baseUrl}?${paramsUrl}`);
+    }
 }
