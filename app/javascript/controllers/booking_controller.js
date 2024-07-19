@@ -78,8 +78,8 @@ export default class extends Controller {
         const baseUrl = e.target.dataset.reservePropertyUrl;
 
         const paramsData = {
-            checkinDate: "2024-07-20",
-            checkoutDate: "2024-07-25"
+            checkinDate: this.checkinTarget.value,
+            checkoutDate: this.checkoutTarget.value
         }
         const paramsUrl = (new URLSearchParams(paramsData)).toString();
 
