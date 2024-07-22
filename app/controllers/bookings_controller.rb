@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+    before_action :authenticate_user!
     def new
         @property = Property.find(booking_params[:property_id])
         @checkin_date = Date.parse(booking_params[:checkinDate])
