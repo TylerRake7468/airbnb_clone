@@ -1,6 +1,4 @@
 class BookingPaymentsController < ApplicationController
-    
-    
     def create
         @property = Property.find(booking_payments_params[:property_id])
         stripe_price = Stripe::Price.create({
@@ -8,7 +6,12 @@ class BookingPaymentsController < ApplicationController
             unit_amount: Money.from_amount(BigDecimal(booking_payments_params[:total_amount])).cents,
             product_data: {name: @property.name},
         })
-        success_url = url_for(controller: 'booking_payments', action: 'success', only_path: false)
+        success_url = url_for(
+            controller: 'booking_payments', 
+            action: 'success', 
+            only_path: false,
+            booking_params: booking_payments_params.except(:stripToken)
+        )
 
         stripe_session = Stripe::Checkout::Session.create({
             success_url: success_url,
@@ -27,6 +30,12 @@ class BookingPaymentsController < ApplicationController
 
     def success
         # add reservation
+        reservation = Reservation.create!(
+            user_id: current_user.id,
+            property_id: booking_params[:property_id],
+            checkin_date: booking_params[:checkin_date],
+            checkout_date: booking_params[:checkout_date]
+        )
         # create a success page
     end
 
