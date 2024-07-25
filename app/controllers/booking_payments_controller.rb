@@ -7,9 +7,11 @@ class BookingPaymentsController < ApplicationController
             currency: 'usd',
             unit_amount: Money.from_amount(BigDecimal(booking_payments_params[:total_amount])).cents,
             product_data: {name: @property.name},
-            })
+        })
+        success_url = url_for(controller: 'booking_payments', action: 'success', only_path: false)
+
         stripe_session = Stripe::Checkout::Session.create({
-            success_url: 'https://example.com/success',
+            success_url: success_url,
             line_items: [
                 {
                 price: stripe_price.try(:id),
@@ -20,6 +22,12 @@ class BookingPaymentsController < ApplicationController
         })
 
         redirect_to stripe_session&.url, allow_other_host: true, status: 303
+    end
+
+
+    def success
+        # add reservation
+        # create a success page
     end
 
     private
