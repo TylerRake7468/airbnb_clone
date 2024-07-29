@@ -14,6 +14,7 @@ const swiper = new Swiper('.swiper', {
     loop: true,
 
     // Navigation arrows
+    // TODO: Swipper button are not working
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
