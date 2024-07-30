@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get "booking_payments/success", to: "booking_payments#success"
   resources :wishlists, only: [:index]
   resources :profiles, only: [:show]
+  resources :reservations, only: [:show]
 end
