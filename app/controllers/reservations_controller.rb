@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
     before_action :authenticate_user!
-    def show
+    def index
         @reservations = current_user.reservations
     end
 end
