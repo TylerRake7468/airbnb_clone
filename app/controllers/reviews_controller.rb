@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to root_path, notice: "Successfully added review."
         else
-            redirect_back fall_location: root_path, alert: "Failed to add review."
+            redirect_back fallback_location: root_path, alert: "Failed to add review."
         end
     end
 
