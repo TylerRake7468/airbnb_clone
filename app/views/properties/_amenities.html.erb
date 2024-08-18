@@ -24,5 +24,6 @@
     </div>
 </div>
 
-
-<%= render 'shared/modal', modalTriggerId: "amenities", content: "properties/amenities_modal", content_params: {amenities: amenities} %>
+<% if amenities.count > 0 %>
+    <%= render 'shared/modal', modalTriggerId: "amenities", content: "properties/amenities_modal", content_params: {amenities: amenities} %>
+<% end %>
