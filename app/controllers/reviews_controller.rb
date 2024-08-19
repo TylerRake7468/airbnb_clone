@@ -5,7 +5,11 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = current_user.reviews.new(review_params.merge(property_id: @reservation.property_id))
+        data_params = review_params.merge(
+            property_id: @reservation.property_id,
+            reservation_id: @reservation.id    
+        )
+        @review = current_user.reviews.new(data_params)
         if @review.save
             redirect_to root_path, notice: "Successfully added review."
         else
