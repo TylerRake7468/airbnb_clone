@@ -8,7 +8,7 @@ description = <<-DESCRIPTION
 DESCRIPTION
 
 pictures = []
-20.times do |i|
+5.times do |i|
   pictures << URI.parse(Faker::LoremFlickr.image).open
 end
 
@@ -63,34 +63,32 @@ user = User.create!({
   email: 'test1@gmail.com',
   password: '123456',
 })
-profile = Profile.create!(
+user.profile.update!(
   {
     name: Faker::Lorem.unique.sentence(word_count: 3),
     address_1: Faker::Address.street_address,
     address_2: Faker::Address.street_name,
     city: Faker::Address.city,
     state: Faker::Address.state,
-    country: Faker::Address.country,
-    user_id: user.id
+    country: Faker::Address.country
   }
 )
-profile.picture.attach(io: pictures[0], filename: profile.name)
+user.profile.picture.attach(io: pictures[0], filename: user.profile.name)
 
-19.times do |i|
+4.times do |i|
   random_user = User.create!({
     email: "test#{i+2}@gmail.com",
     password: '123456',
   })
-  random_profile = Profile.create!({
+  random_user.profile.update!({
     name: Faker::Lorem.unique.sentence(word_count: 3),
     address_1: Faker::Address.street_address,
     address_2: Faker::Address.street_name,
     city: Faker::Address.city,
     state: Faker::Address.state,
-    country: Faker::Address.country,
-    user_id: random_user.id
+    country: Faker::Address.country
   })
-  random_profile.picture.attach(io: pictures[i+1], filename: random_profile.name)
+  random_user.profile.picture.attach(io: pictures[i+1], filename: random_user.profile.name)
 end
 
 6.times do |i|

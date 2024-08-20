@@ -13,13 +13,11 @@ class User < ApplicationRecord
 
   has_one :profile
 
-  after_create :new_profile
+  after_create :new_profile_if_needed
 
+  private
 
-  def new_profile
-    self.profile = Profile.new
-    save!
+  def new_profile_if_needed
+    create_profile if self.profile.nil?
   end
-
-
 end
