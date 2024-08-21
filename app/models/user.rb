@@ -11,13 +11,11 @@ class User < ApplicationRecord
   has_many :reserved_property, through: :reservations, source: :property, dependent: :destroy
   has_many :payments, through: :reservations, dependent: :destroy
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   after_create :new_profile_if_needed
 
-  private
-
   def new_profile_if_needed
-    create_profile if self.profile.nil?
+    create_profile if profile.nil?
   end
 end

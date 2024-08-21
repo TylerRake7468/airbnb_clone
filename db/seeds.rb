@@ -8,7 +8,7 @@ description = <<-DESCRIPTION
 DESCRIPTION
 
 pictures = []
-5.times do |i|
+20.times do |i|
   pictures << URI.parse(Faker::LoremFlickr.image).open
 end
 
@@ -75,7 +75,7 @@ user.profile.update!(
 )
 user.profile.picture.attach(io: pictures[0], filename: user.profile.name)
 
-4.times do |i|
+19.times do |i|
   random_user = User.create!({
     email: "test#{i+2}@gmail.com",
     password: '123456',
@@ -124,19 +124,19 @@ end
     end
   end
   
-  ((5..10).to_a.sample).times do
-    Review.create!({
-      content: Faker::Lorem.paragraph(sentence_count: 10),
-      cleanliness_rating: (1..5).to_a.sample,
-      accuracy_rating: (1..5).to_a.sample,
-      checkin_rating: (1..5).to_a.sample,
-      communication_rating: (1..5).to_a.sample,
-      location_rating: (1..5).to_a.sample,
-      value_rating: (1..5).to_a.sample,
-      property: property,
-      user: User.all.sample
-    })
-  end
+  # ((5..10).to_a.sample).times do
+  #   Review.create!({
+  #     content: Faker::Lorem.paragraph(sentence_count: 10),
+  #     cleanliness_rating: (1..5).to_a.sample,
+  #     accuracy_rating: (1..5).to_a.sample,
+  #     checkin_rating: (1..5).to_a.sample,
+  #     communication_rating: (1..5).to_a.sample,
+  #     location_rating: (1..5).to_a.sample,
+  #     value_rating: (1..5).to_a.sample,
+  #     property: property,
+  #     user: User.all.sample
+  #   })
+  # end
 end
 
 # amenity1 = Amenity.create!(name: "Kitchen")
