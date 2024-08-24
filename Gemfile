@@ -69,3 +69,4 @@ gem "tailwindcss-rails", "~> 2.6"
 
 gem "devise", "~> 4.9"
 gem 'stripe-rails'
+gem 'country_select', '~> 8.0'

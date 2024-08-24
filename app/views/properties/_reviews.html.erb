@@ -175,7 +175,7 @@
                 
                 <div>
                   <p class="ms-4 text-base font-medium text-gray-900"><%= review.user.profile.name %></p>
-                  <p class="ms-4 font-medium text-gray-900"><%= review.user.profile.city %>, <%= review.user.profile.country %></p>
+                  <p class="ms-4 font-medium text-gray-900"><%= review.user.profile.city %>, <%= country_name(review.user.profile.country_code) %></p>
                 </div>
             </div>
             <div class="mt-2 flex items-center">
