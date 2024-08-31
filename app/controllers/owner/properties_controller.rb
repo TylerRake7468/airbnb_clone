@@ -1,7 +1,7 @@
 module Owner
     class PropertiesController < ApplicationController
         before_action :authenticate_user!
-        before_action :set_property, only: [:edit, :update]
+        before_action :set_property, only: [:edit, :update, :update_amenities]
 
         def index
             @properties = current_user.properties
@@ -18,6 +18,14 @@ module Owner
                 redirect_to edit_owner_property_path, notice: "property update successfully."
             else
                 redirect_back fallback_location: edit_owner_property_path, alert: "Failed to update profile"
+            end
+        end
+
+        def update_amenities
+            if @property.update!(amenities_params)
+                redirect_to edit_owner_property_path, notice: "Amenities update successfully."
+            else
+                redirect_back fallback_location: edit_owner_property_path, alert: "Failed to update amenities"
             end
         end
 
@@ -38,6 +46,10 @@ module Owner
                 :state,
                 :country_code
             )
+        end
+
+        def amenities_params
+            params.require(:property).permit(:amenity_ids => [])
         end
     end
 end
