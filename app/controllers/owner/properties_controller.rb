@@ -1,7 +1,7 @@
 module Owner
     class PropertiesController < ApplicationController
         before_action :authenticate_user!
-        before_action :set_property, only: [:edit, :update, :update_amenities, :remove_image, :add_images]
+        before_action :set_property, only: [:edit, :update, :update_amenities, :remove_image, :add_images, :destroy]
 
         def index
             @properties = current_user.properties
@@ -29,9 +29,14 @@ module Owner
             end
         end
 
+        def destroy
+            @property.destroy
+            redirect_to owner_properties_path, alert: "#{@property.name} deleted successfully."
+        end
+
         def add_images
-            @property.images.attach(params[:property][:images].reject(&:blank?))
-            redirect_to edit_owner_property_path, notice: "Property images uploaded successfully"
+            # @property.images.attach(params[:property][:images].reject(&:blank?))
+            redirect_to edit_owner_property_path, notice: "Property images uploaded successfully temp"
         end
 
         def remove_image
