@@ -35,7 +35,7 @@ module Owner
         end
 
         def add_images
-            # @property.images.attach(params[:property][:images].reject(&:blank?))
+            @property.images.attach(params[:property][:images].reject(&:blank?))
             redirect_to edit_owner_property_path, notice: "Property images uploaded successfully temp"
         end
 
