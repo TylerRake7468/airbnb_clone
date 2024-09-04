@@ -13,7 +13,9 @@
 	
   <div class="m-6">
     <div class="flex items-center">
-      <%= image_tag content_params[:property].images[0], class:"w-16 h-16 object-cover rounded-md"%>
+      <% if content_params[:property].images.present? %>
+        <%= image_tag content_params[:property].images[0], class:"w-16 h-16 object-cover rounded-md"%>
+      <% end %>
       <div class="ml-3 text-black font-light">
         <%= content_params[:property].name %> - <%= content_params[:property].city %>, <%= content_params[:property].state %>
          · 

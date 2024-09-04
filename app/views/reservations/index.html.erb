@@ -13,7 +13,9 @@
 
 
           <div class="flex items-center">
-            <%= image_tag reservation.property.images[0], class:"w-24 h-24 object-cover rounded-md"%>
+            <% if reservation.property.images.present? %>
+              <%= image_tag reservation.property.images[0], class:"w-24 h-24 object-cover rounded-md"%>
+            <% end %>
             <div class="ml-3 text-black font-medium">
               <div><%= reservation.property.name %> - <%= reservation.property.city %>, <%= reservation.property.state %></div>
               <span class="inline-flex items-center pointer-events-none text-sm text-black mt-2">

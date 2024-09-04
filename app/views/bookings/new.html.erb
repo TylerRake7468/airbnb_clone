@@ -44,7 +44,9 @@
         <h2 class="sr-only">Booking information</h2>
 
         <div class="flex items-center">
-          <%= image_tag @property.images[0], class:"w-24 h-24 object-cover rounded-md"%>
+          <% if @property.images.present? %>
+            <%= image_tag @property.images[0], class:"w-24 h-24 object-cover rounded-md"%>
+          <% end %>
           <div class="ml-3 text-black font-medium">
             <div class=><%= @property.name %> - <%= @property.city %>, <%= @property.state %></div>
             <span class="inline-flex items-center pointer-events-none text-sm text-black mt-2">

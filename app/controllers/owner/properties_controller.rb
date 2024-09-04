@@ -8,6 +8,12 @@ module Owner
         end
 
         def new
+            @property = Property.new
+        end
+
+        def create
+            @property = current_user.properties.create!(property_params)
+            redirect_to edit_owner_property_path(@property), notice: "Property Created Successfully."
         end
 
         def edit

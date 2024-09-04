@@ -10,6 +10,9 @@ class Property < ApplicationRecord
     has_rich_text :description
     monetize :price_cents, allow_nil: true
 
+    validates :price_cents, presence: :true
+    validates :price_currency, presence: :true
+
     has_many_attached :images
     has_many :reviews, dependent: :destroy
 
