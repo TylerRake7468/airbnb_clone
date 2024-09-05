@@ -69,7 +69,11 @@ module Owner
                 :address_2,
                 :city,
                 :state,
-                :country_code
+                :country_code,
+                :guest_count,
+                :bedroom_count,
+                :bed_count,
+                :bathroom_count,
             )
         end
 
