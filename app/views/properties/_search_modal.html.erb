@@ -6,7 +6,38 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
-    <div class="grid grid-cols-6 gap-6">
-      search modal
-    </div>
+  <div class="flex flex-col mx-6 my-6"
+    data-controller="search-modal"
+    >
+    <h2 class="text-2xl font-medium leading-6 text-gray-900" id="modal-title">Search</h2>
+
+    <%= form_with url: root_path, class:'mt-6 grid grid-cols-1 gap-y-4' do |f| %>
+      <div class="grid grid-cols-2 items-center">
+        <%= f.label 'Select Country', class:'text-base leading-6 text-gray-900' %>
+        <%= f.country_select :country_code, { include_blank: 'Select a country' }, class: 'rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6' %>
+      </div>
+
+      <div class="grid grid-cols-2 items-center">
+        <%= f.label :check_in, class:'text-base leading-6 text-gray-900' %>
+        <%= f.text_field :check_in,
+          class:"rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6",
+          value:"#{Date.today.strftime('%Y-%m-%d')}",
+          data: {'search-modal-target': "checkin"}
+          %>
+      </div>
+
+      <div class="grid grid-cols-2 items-center">
+        <%= f.label :check_out, class:'text-base leading-6 text-gray-900' %>
+        <%= f.text_field :check_out,
+          class:"rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-900 sm:text-sm sm:leading-6",
+          value:"#{Date.today.strftime('%Y-%m-%d')}",
+          data: {'search-modal-target': "checkout"}
+          %>
+      </div>
+
+      <div>
+        <%= f.submit "Search", class:"cursor-pointer mt-2 flex items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 text-base font-medium text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" %>
+      </div>
+    <% end %>
+  </div>
 </div>
