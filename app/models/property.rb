@@ -27,6 +27,10 @@ class Property < ApplicationRecord
 
     has_many :payments, through: :reservations, dependent: :destroy
 
+    def self.with_reservations_overlap(checkin_date, checkout_date)
+        where.not(id: Reservation.overlapping_reservations(checkin_date, checkout_date)).pluck(:property_id)
+    end
+
     def update_final_averate_rating
         avg_rating = reviews.average(:final_rating).to_f
         update_column(:average_final_rating, avg_rating)
