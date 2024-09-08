@@ -24,7 +24,10 @@ class Reservation < ApplicationRecord
     )
   }
 
-
+# TODO: 1. when we are going to show any property 
+# by default checkin checkout date should be set to first available date.
+# 2. and when we are creating reservation or payment we have to validate same date 
+# checkin checkout should not be date there for same property
 
 
 end
