@@ -4,7 +4,7 @@ module Owner
         before_action :set_property, only: [:edit, :update, :update_amenities, :remove_image, :add_images, :destroy]
 
         def index
-            @properties = current_user.properties
+            @properties = current_user.properties.order(created_at: :desc)
         end
 
         def new
