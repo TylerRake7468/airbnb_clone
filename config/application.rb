@@ -42,5 +42,7 @@ module AirbnbClone
     # stripe integration
     config.stripe.publishable_key = ENV["STRIPE_PUBLISHABLE_KEY"]
     config.stripe.secret_key = ENV["STRIPE_SECRET_KEY"]
+
+    config.google_api_key = config_for(:google_api_keys)
   end
 end

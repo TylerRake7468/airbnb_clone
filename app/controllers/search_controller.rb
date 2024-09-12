@@ -4,6 +4,7 @@ class SearchController < ApplicationController
             redirect_to root_path
             return
         end
+        @google_api_key = Rails.application.config.google_api_key["map_api_key"]
         @properties = Property.all
         if search_params[:country_code].present?
             @properties = @properties.where(country_code: search_params[:country_code])
