@@ -39,6 +39,7 @@ Rails.application.routes.draw do
         patch 'update_amenities'
         delete 'remove_image'
         patch 'add_images'
+        patch 'update_location'
       end
     end
     resources :reservations, only: :index

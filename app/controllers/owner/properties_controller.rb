@@ -1,7 +1,7 @@
 module Owner
     class PropertiesController < ApplicationController
         before_action :authenticate_user!
-        before_action :set_property, only: [:edit, :update, :update_amenities, :remove_image, :add_images, :destroy]
+        before_action :set_property, only: [:edit, :update, :update_amenities, :remove_image, :add_images, :destroy, :update_location]
 
         def index
             @properties = current_user.properties.order(created_at: :desc)
@@ -17,6 +17,7 @@ module Owner
         end
 
         def edit
+            @google_api_key = Rails.application.config.google_api_key["map_api_key"]
         end
 
         def update
@@ -54,6 +55,14 @@ module Owner
             end
         end
 
+        def update_location
+            if @property.update!(location_params)
+                redirect_to edit_owner_property_path, notice: "Location update successfully."
+            else
+                redirect_back fallback_location: edit_owner_property_path, alert: "Failed to update location"
+            end
+        end
+
         private
         def set_property
             @property = current_user.properties.find(params[:id])
@@ -79,6 +88,10 @@ module Owner
 
         def amenities_params
             params.require(:property).permit(:amenity_ids => [])
+        end
+
+        def location_params
+            params.require(:property).permit(:lat, :lng)
         end
     end
 end

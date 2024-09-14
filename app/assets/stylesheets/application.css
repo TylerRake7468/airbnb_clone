@@ -94,3 +94,7 @@
   border-right: 8px solid transparent;
   border-top: 8px solid #FF385C;
 }
+
+.h-screen-navbar {
+  height: calc(100vh - 112px); /* Adjust the height value based on your navbar height */
+}
