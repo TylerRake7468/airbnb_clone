@@ -43,6 +43,6 @@ module AirbnbClone
     config.stripe.publishable_key = ENV["STRIPE_PUBLISHABLE_KEY"]
     config.stripe.secret_key = ENV["STRIPE_SECRET_KEY"]
 
-    config.google_api_key = config_for(:google_api_keys)
+    config.google_api_key = ENV['GOOGLE_MAP_API_KEY']
   end
 end

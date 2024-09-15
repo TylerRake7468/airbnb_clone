@@ -17,7 +17,7 @@ module Owner
         end
 
         def edit
-            @google_api_key = Rails.application.config.google_api_key["map_api_key"]
+            @google_api_key = Rails.application.config.google_api_key
         end
 
         def update
