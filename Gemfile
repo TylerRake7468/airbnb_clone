@@ -13,7 +13,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-
+gem 'pry', '~> 0.14.2'
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
 gem "bootsnap", require: false
